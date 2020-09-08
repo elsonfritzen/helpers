@@ -62,7 +62,7 @@ class ScaffoldController extends Controller
             if (in_array('migration', $request->get('create'))) {
                 $migrationName = 'create_'.$request->get('table_name').'_table';
 
-                $paths['migration'] = (new MigrationCreator(app('files')))->buildBluePrint(
+                $paths['migration'] = (new MigrationCreator(app('files'),'../stubs'))->buildBluePrint(
                     $request->get('fields'),
                     $request->get('primary_key', 'id'),
                     $request->get('timestamps') == 'on',
